@@ -77,3 +77,14 @@ input[type=text]:not(.browser-default):focus:not([readonly]) + label {
   text-align: center!important;
   color: #FFF!important;
 }
+.frio{
+  background-image: url('assets/cold.jpg') ;
+  
+
+}
+.calor{
+  background: url('assets/calor.jpg')  ;
+  background-size: 500px;
+ 
+  
+}
