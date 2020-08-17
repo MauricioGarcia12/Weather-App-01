@@ -1,11 +1,7 @@
 import React,{useState} from 'react';
-const Formulario = () => {
+const Formulario = ({busqueda,guardarBusqueda,guardarConsultar}) => {
 
-    //state del formulario
-    const [busqueda,guardarBusqueda]=useState({
-        ciudad: '',
-        pais: ''
-    })
+    
     const {ciudad, pais}=busqueda;
 
     const [error,guardarError]=useState(false);
@@ -24,15 +20,21 @@ const Formulario = () => {
     const handleSubmit = e =>{
         e.preventDefault();
         //validar 
-        if(ciudad.trim() === ''||pais.trim() === ''){
+        if(ciudad.trim() === '' ||pais.trim() === ''){
             guardarError(true)
             return;
 
         }
+        else if (ciudad.trim() === '' && pais.trim() === ''){
+            guardarError(true)
+            return;
+        }
+
         guardarError(false);
 
 
         //pasar al componente principal
+        guardarConsultar(true);
 
 
     }
@@ -70,11 +72,12 @@ const Formulario = () => {
                 <label htmlFor="pais">Pais: </label>
             </div>
             <div className='input-field col s12'>
-                <input 
+                <button
                 type="submit"
-                value='Buscar Clima'
-                className='waves-effect waves-light btn-large btn-block yellow accent-4'
-                />
+                
+                className='waves-effect waves-light btn-large btn-block yellow accent-4 col s12'
+                >Buscar Clima
+                </button>
 
             </div>
 
